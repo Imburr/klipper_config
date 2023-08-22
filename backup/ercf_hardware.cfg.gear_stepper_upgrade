@@ -82,8 +82,29 @@ maximum_pulse_width: 0.00215
 [ercf_encoder ercf_encoder]
 encoder_pin: ^ercf:gpio22			# EASY-BRD: ^ercf:PA6, Flytech ERB: ^ercf:gpio22
 encoder_resolution: 1.335113	    # Set AFTER 'rotation_distance' is tuned for gear stepper (see manual)
-#extruder: extruder		            # The extruder to track with for runout/clog detection
+extruder: extruder		            # The extruder to track with for runout/clog detection
 
 # These are advanced but settings for Automatic clog detection mode. Make sure you understand or ask questions on Discord
 desired_headroom: 10.0		        # The runout headroom that ERCF will attempt to maintain (closest ERCF comes to triggering runout)
 average_samples: 4		            # The "damping" effect of last measurement. Higher value means clog_length will be reduced more slowly
+
+#[duplicate_pin_override]
+#pins: ercf:gpio22
+# Put there the pin used by the encoder and the filament_motion_sensor
+# It has to be the same pin for those 3
+
+#[filament_motion_sensor encoder_sensor]
+#switch_pin: ^ercf:gpio22
+#pause_on_runout: False
+#detection_length: 10.0
+#extruder: extruder
+#runout_gcode: ERCF_ENCODER_MOTION_ISSUE
+
+## TOOLHEAD SENSOR ---------------------------------------------------------------------------------------------------------
+# Uncomment this section to enable toolhead sensor support
+#
+## ERCF Toolhead sensor START
+#[filament_switch_sensor toolhead_sensor]
+#pause_on_runout: False		# Must be False
+#switch_pin: {dummy_pin_must_set_me}
+## ERCF Toolhead sensor END
