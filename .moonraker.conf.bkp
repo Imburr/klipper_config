@@ -4,9 +4,6 @@ port = 7125
 max_upload_size = 1024
 klippy_uds_address = ~/printer_data/comms/klippy.sock
 
-[file_manager]
-enable_object_processing = True
-
 [authorization]
 cors_domains = 
 	https://my.mainsail.xyz
@@ -22,8 +19,6 @@ trusted_clients =
 	FE80::/10
 	::1/128
 
-[octoprint_compat]
-
 [history]
 
 [announcements]
@@ -33,17 +28,6 @@ subscriptions =
 [update_manager]
 refresh_interval = 168
 enable_auto_refresh = True
-
-[power Trident_Power_Outlet]
-type = homeassistant
-address = 192.168.2.125
-port = 8123
-device = switch.trident_power_socket_1
-token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmZTQ0N2JhZTk4ZTU0YTBlODQzZDBjY2M4MWRmYTMyMSIsImlhdCI6MTY3Nzk0MDk1NiwiZXhwIjoxOTkzMzAwOTU2fQ.ZLythrJfeTR33QQKNAFamOd7LBjTL8DwCD4XIZT9vng
-domain = switch
-on_when_job_queued = True
-restart_klipper_when_powered = True
-restart_delay = 3.
 
 [update_manager mainsail]
 type = web
@@ -57,16 +41,6 @@ primary_branch = master
 path = ~/mainsail-config
 origin = https://github.com/mainsail-crew/mainsail-config.git
 managed_services = klipper
-
-[update_manager moonraker-obico]
-type = git_repo
-path = ~/moonraker-obico
-origin = https://github.com/TheSpaghettiDetective/moonraker-obico.git
-env = /home/pi/moonraker-obico-env/bin/python
-requirements = requirements.txt
-install_script = install.sh
-managed_services = 
-	moonraker-obico
 
 [update_manager Klipper-Adaptive-Meshing-Purging]
 type = git_repo
@@ -118,9 +92,6 @@ origin = https://github.com/moggieuk/Happy-Hare.git
 primary_branch = main
 install_script = install.sh
 managed_services = klipper
-
-[mmu_server]
-enable_file_preprocessor = True
 
 [update_manager klipper_tmc_autotune]
 type = git_repo
