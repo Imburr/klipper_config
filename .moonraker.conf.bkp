@@ -4,6 +4,9 @@ port = 7125
 max_upload_size = 1024
 klippy_uds_address = ~/printer_data/comms/klippy.sock
 
+[file_manager]
+enable_object_processing = True
+
 [authorization]
 cors_domains = 
 	https://my.mainsail.xyz
@@ -18,6 +21,8 @@ trusted_clients =
 	192.168.0.0/16
 	FE80::/10
 	::1/128
+
+[octoprint_compat]
 
 [history]
 
@@ -92,6 +97,10 @@ origin = https://github.com/moggieuk/Happy-Hare.git
 primary_branch = main
 install_script = install.sh
 managed_services = klipper
+
+[mmu_server]
+enable_file_preprocessor = True
+enable_toolchange_next_pos = True
 
 [update_manager klipper_tmc_autotune]
 type = git_repo
